@@ -1,0 +1,19 @@
+{
+  "name": "cross-face",
+  "version": "1.0.0",
+  "description": "front end app for Huttcross cyclocross series application services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Huttcross/cross-face.git"
+  },
+  "author": "Alex Revell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Huttcross/cross-face/issues"
+  },
+  "homepage": "https://github.com/Huttcross/cross-face"
+}
