@@ -1,6 +1,8 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+var _rx = require('rx');
+
 var _core = require('@cycle/core');
 
 var _core2 = _interopRequireDefault(_core);
@@ -9,27 +11,18 @@ var _dom = require('@cycle/dom');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/** @jsx hJSX */
-
 function main(drivers) {
   return {
-    DOM: drivers.DOM.select('input').events('click').map(function (ev) {
-      return ev.target.checked;
-    }).startWith(false).map(function (toggled) {
+    DOM: _rx.Observable.timer(0, 1000).map(function (i) {
       return (0, _dom.hJSX)(
         'div',
         null,
-        (0, _dom.hJSX)('input', { type: 'checkbox' }),
-        ' Toggle me',
-        (0, _dom.hJSX)(
-          'p',
-          null,
-          toggled ? 'ON' : 'off'
-        )
+        i,
+        ' seconds elapsed'
       );
     })
   };
-}
+} /** @jsx hJSX */
 
 var drivers = {
   DOM: (0, _dom.makeDOMDriver)('#app')
@@ -37,7 +30,7 @@ var drivers = {
 
 _core2.default.run(main, drivers);
 
-},{"@cycle/core":2,"@cycle/dom":3}],2:[function(require,module,exports){
+},{"@cycle/core":2,"@cycle/dom":3,"rx":60}],2:[function(require,module,exports){
 "use strict";
 
 var Rx = require("rx");
